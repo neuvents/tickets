@@ -1,5 +1,8 @@
 class Order < ApplicationRecord
   has_many :line_items
+  has_many :tickets, through: :line_items
+
+  attr_readonly :uid
 
   enum payment_type: {credit_card: 0, bank_transfer: 1}
 

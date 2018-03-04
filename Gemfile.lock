@@ -139,6 +139,7 @@ GEM
     selenium-webdriver (3.10.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    serializr (0.5.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -187,6 +188,7 @@ DEPENDENCIES
   rails (~> 5.1.5)
   sass-rails (~> 5.0)
   selenium-webdriver
+  serializr
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
