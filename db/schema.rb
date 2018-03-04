@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304120036) do
+ActiveRecord::Schema.define(version: 20180304153758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,37 @@ ActiveRecord::Schema.define(version: 20180304120036) do
     t.string "name", null: false
     t.boolean "active", default: false, null: false
     t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "ticket_id", null: false
+    t.bigint "order_id", null: false
+    t.integer "price", null: false
+    t.string "currency", limit: 3, null: false
+    t.integer "quantity", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_line_items_on_order_id"
+    t.index ["ticket_id"], name: "index_line_items_on_ticket_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "uid", null: false
+    t.integer "payment_type", default: 0, null: false
+    t.datetime "date", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.boolean "legal_entity", default: false, null: false
+    t.string "company", default: "", null: false
+    t.string "company_uid", default: "", null: false
+    t.string "company_vat_uid", default: "", null: false
+    t.string "country", default: "", null: false
+    t.string "city", default: "", null: false
+    t.string "zip", default: "", null: false
+    t.string "address", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +80,8 @@ ActiveRecord::Schema.define(version: 20180304120036) do
     t.index ["ticket_type_id"], name: "index_tickets_on_ticket_type_id"
   end
 
+  add_foreign_key "line_items", "orders", on_delete: :restrict
+  add_foreign_key "line_items", "tickets", on_delete: :restrict
   add_foreign_key "ticket_types", "events", on_delete: :restrict
   add_foreign_key "tickets", "ticket_types", on_delete: :restrict
 end

@@ -1,3 +1,5 @@
+LineItem.destroy_all
+Order.destroy_all
 Ticket.destroy_all
 TicketType.destroy_all
 Event.destroy_all
@@ -43,7 +45,7 @@ standard_tt = TicketType.create!(
   ]
 )
 
-Ticket.create!(
+ticket_one = Ticket.create!(
   ticket_type: early_bird_tt,
   uid: SecureRandom.uuid,
   first_name: "John",
@@ -57,7 +59,7 @@ Ticket.create!(
   ]
 )
 
-Ticket.create!(
+ticket_two = Ticket.create!(
   ticket_type: standard_tt,
   uid: SecureRandom.uuid,
   first_name: "Jane",
@@ -69,4 +71,37 @@ Ticket.create!(
       value: "L"
     }
   ]
+)
+
+order = Order.create!(
+  uid: SecureRandom.uuid,
+  first_name: "John",
+  last_name: "Doe",
+  email: "john@example.com",
+  payment_type: "credit_card",
+  date: Time.current,
+  legal_entity: true,
+  company: "Aperture technologies",
+  company_uid: "12345678",
+  company_vat_uid: "BG12345678",
+  country: "Bulgaria",
+  city: "Sofia",
+  zip: "1407",
+  address: "ul. Banat 3"
+)
+
+LineItem.create!(
+  order: order,
+  ticket: ticket_one,
+  quantity: 1,
+  price: ticket_one.ticket_type.price,
+  currency: ticket_one.ticket_type.currency
+)
+
+LineItem.create!(
+  order: order,
+  ticket: ticket_two,
+  quantity: 1,
+  price: ticket_two.ticket_type.price,
+  currency: ticket_two.ticket_type.currency
 )
