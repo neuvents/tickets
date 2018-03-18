@@ -1,0 +1,13 @@
+early_bird:
+  event: balkan_ruby
+  name: 'Early bird'
+  active: true
+  price: 9900
+  currency: 'EUR'
+
+standard:
+  event: balkan_ruby
+  name: 'Standard'
+  active: true
+  price: 10900
+  currency: 'EUR'

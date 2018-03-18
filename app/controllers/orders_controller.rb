@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   private
 
   def create_order
-    Orders::Create.new(Orders::CreateParams.new(order_params)).run
+    Orders::Create.new(Orders::Params.new(order_params)).run
   end
 
   def order_params

@@ -6,6 +6,6 @@ class TicketType < ApplicationRecord
   validates :name, presence: true
   validates :active, inclusion: {in: [true, false]}
   validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
-  validates :currency, presence: true # TODO: validation for inclusion in currencies list
+  validates :currency, presence: true, inclusion: {in: Currency.iso_4217_codes}
   # TODO: validations for fields
 end

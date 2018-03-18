@@ -1,5 +1,5 @@
 class Error < StandardError
-  def error
+  def code
     500
   end
 end

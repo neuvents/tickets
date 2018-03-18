@@ -14,6 +14,11 @@ module Orders
 
         order
       end
+    rescue ActiveRecord::RecordNotSaved, ActiveRecord::RecordNotUnique => e
+      raise ValidationError.new(e.record.errors)
+    rescue ActiveRecord::RecordNotFound => e
+      # TODO: Maybe do it so it returns 422 with the error set at the correct ticket entry
+      raise NotFoundError.new(e.message)
     end
 
     private

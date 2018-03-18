@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
   rescue_from Error do |error|
-    render json: {error: error}, status: error.code
+    render json: {message: error.message}, status: error.code
   end
 
   rescue_from ValidationError do |error|

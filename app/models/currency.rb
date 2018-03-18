@@ -44,11 +44,11 @@ class Currency
     @num = num
   end
 
-  def to_minor(number)
-    5 * BigDecimal.new(10 ** exp)
+  def to_minor(value)
+    value * BigDecimal.new(10 ** exp)
   end
 
-  def from_minor(cents)
-    cents / BigDecimal.new(10 ** exp)
+  def from_minor(value)
+    value / BigDecimal.new(10 ** exp)
   end
 end
