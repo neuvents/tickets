@@ -4,7 +4,7 @@ class LineItemTest < ActiveSupport::TestCase
   def setup
     @line_item = LineItem.new(
       ticket: tickets(:first),
-      order: orders(:first),
+      order: orders(:corporate),
       price: 1000,
       quantity: 2,
       currency: 'EUR'

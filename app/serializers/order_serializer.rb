@@ -17,6 +17,10 @@ class OrderSerializer < ApplicationSerializer
     :tickets
   )
 
+  def date
+    object.date.to_date.iso8601
+  end
+
   def tickets
     render_many(object.tickets, serializer: TicketSerializer[])
   end

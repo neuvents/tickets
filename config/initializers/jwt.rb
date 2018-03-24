@@ -3,6 +3,6 @@ Rails.configuration.to_prepare do
     Rails.configuration.secret_key_base
 
   if algorithm = ENV['JWT_ALGORITHM'].presence
-    Token.algorithm = algorithm 
+    Token.algorithm = algorithm
   end
 end

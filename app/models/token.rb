@@ -3,7 +3,7 @@ module Token extend self
   cattr_accessor(:algorithm) { 'HS256' }
 
   def decode(token)
-    JWT.decode(token, secret, true, { algorithm: algorithm }).first
+    JWT.decode(token, secret, true, {algorithm: algorithm}).first
   end
 
   def encode(claims)

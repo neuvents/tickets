@@ -25,7 +25,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   test 'index should render all existing events' do
     expected_events = format_events events(:balkan_ruby)
 
-    get events_url
+    get events_url, headers: authorization_header
 
     assert_response :success
     assert_json @response.body, expected_events
@@ -35,7 +35,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     event = events(:balkan_ruby)
     expected_event = format_events(event).first
 
-    get event_url(event)
+    get event_url(event), headers: authorization_header
 
     assert_response :success
     assert_json @response.body, expected_event

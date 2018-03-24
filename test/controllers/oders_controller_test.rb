@@ -41,7 +41,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test 'post create should render 204 on success' do
     travel_to(test_time) do
-      post orders_url, params: request_params
+      post orders_url, params: request_params, headers: authorization_header
 
       assert_response :success
       # TODO: match the response body!
@@ -53,7 +53,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
       params = request_params
       params[:order][:first_name] = nil
 
-      post orders_url, params: params
+      post orders_url, params: params, headers: authorization_header
 
       assert_response :unprocessable_entity
       # TODO: match response body!

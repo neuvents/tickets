@@ -3,6 +3,12 @@ Order.destroy_all
 Ticket.destroy_all
 TicketType.destroy_all
 Event.destroy_all
+User.destroy_all
+
+User.create!(
+  email: 'john.doe@example.com',
+  password: '12345678'
+)
 
 event = Event.create!(
   name: "Balkan Ruby",
