@@ -3,9 +3,14 @@ Order.destroy_all
 Ticket.destroy_all
 TicketType.destroy_all
 Event.destroy_all
+User.destroy_all
+
+User.create!(
+  email: 'john.doe@example.com',
+  password: '12345678'
+)
 
 event = Event.create!(
-  uid: SecureRandom.uuid,
   name: "Balkan Ruby",
   active: true,
   description: "The annual ruby conference on the Balkan peninsula"
@@ -13,7 +18,6 @@ event = Event.create!(
 
 early_bird_tt = TicketType.create!(
   event: event,
-  uid: SecureRandom.uuid,
   name: "Early bird",
   active: true,
   price: 8900,
@@ -30,7 +34,6 @@ early_bird_tt = TicketType.create!(
 
 standard_tt = TicketType.create!(
   event: event,
-  uid: SecureRandom.uuid,
   name: "Standard",
   active: true,
   price: 9900,
@@ -46,8 +49,8 @@ standard_tt = TicketType.create!(
 )
 
 ticket_one = Ticket.create!(
-  ticket_type: early_bird_tt,
   uid: SecureRandom.uuid,
+  ticket_type: early_bird_tt,
   first_name: "John",
   last_name: "Doe",
   email: "john@example.com",
@@ -60,8 +63,8 @@ ticket_one = Ticket.create!(
 )
 
 ticket_two = Ticket.create!(
-  ticket_type: standard_tt,
   uid: SecureRandom.uuid,
+  ticket_type: standard_tt,
   first_name: "Jane",
   last_name: "Doe",
   email: "jane@example.com",

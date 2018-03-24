@@ -1,0 +1,23 @@
+early_bird:
+  event: balkan_ruby
+  name: 'Early bird'
+  active: true
+  price: 9900
+  currency: 'EUR'
+  fields:
+    - type: text
+      name: t_shirt_size
+      label: 'T-shirt size'
+      required: true
+
+standard:
+  event: balkan_ruby
+  name: 'Standard'
+  active: true
+  price: 10900
+  currency: 'EUR'
+  fields:
+    - type: text
+      name: t_shirt_size
+      label: 'T-shirt size'
+      required: true

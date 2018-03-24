@@ -1,0 +1,15 @@
+corporate:
+  uid: "JD-some-pseudo-random-order-uid"
+  first_name: "John"
+  last_name: "Doe"
+  email: "john@example.com"
+  payment_type: "credit_card"
+  date: "2018-03-18 17:54:54"
+  legal_entity: true
+  company: "Aperture technologies"
+  company_uid: "12345678"
+  company_vat_uid: "BG12345678"
+  country: "Bulgaria"
+  city: "Sofia"
+  zip: "1407"
+  address: "ul. Banat 3"

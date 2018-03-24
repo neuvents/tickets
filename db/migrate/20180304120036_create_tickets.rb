@@ -10,6 +10,8 @@ class CreateTickets < ActiveRecord::Migration[5.1]
 
       t.timestamps null: false
     end
+
+    add_index :tickets, :uid, unique: true
   end
 end
 

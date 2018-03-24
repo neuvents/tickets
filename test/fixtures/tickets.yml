@@ -1,0 +1,9 @@
+first:
+  ticket_type: early_bird
+  uid: JD-some-pseudo-random-ticket-uid
+  first_name: John
+  last_name: Doe
+  email: john@example.com
+  fields:
+    - name: t_shirt_size
+      value: L
